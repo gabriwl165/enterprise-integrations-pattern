@@ -16,7 +16,7 @@ type AggregatorPublishEventHandler interface {
 }
 
 type AggregatorIsCompleteEventHandler interface {
-	IsComplete(correlationID string, messages []Aggregate) bool
+	IsComplete(messages []Aggregate) bool
 }
 
 type Aggregator struct {
@@ -38,7 +38,7 @@ func (a *Aggregator) AddMessage(msg map[string]interface{}) error {
 	})
 
 	messages, _ := a.GetCorrelationId(id)
-	if a.IsCompleteEventHandler.IsComplete(id, messages) {
+	if a.IsCompleteEventHandler.IsComplete(messages) {
 		a.PublishEventHandler.Publish(messages)
 	}
 

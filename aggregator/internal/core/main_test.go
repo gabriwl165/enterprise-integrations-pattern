@@ -12,7 +12,7 @@ func (t *TestAggregatorPublishEventHandler) Publish(aggregates []Aggregate) erro
 
 type TestAggregatorIsCompleteEventHandler struct{}
 
-func (t *TestAggregatorIsCompleteEventHandler) IsComplete(correlationID string, messages []Aggregate) bool {
+func (t *TestAggregatorIsCompleteEventHandler) IsComplete(messages []Aggregate) bool {
 	return len(messages) == 5
 }
 
@@ -37,7 +37,7 @@ func TestAggregator_IsComplete(t *testing.T) {
 	}
 	aggregator.AddMessage(map[string]interface{}{"id": "1", "message": "Hello, World!"})
 	aggregates, _ := aggregator.GetCorrelationId("1")
-	if aggregator.IsCompleteEventHandler.IsComplete("1", aggregates) {
+	if aggregator.IsCompleteEventHandler.IsComplete(aggregates) {
 		t.Errorf("expected aggregator not to be complete")
 	}
 }

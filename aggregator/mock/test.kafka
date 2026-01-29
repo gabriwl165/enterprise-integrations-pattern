@@ -1,0 +1,8 @@
+PRODUCER keyed-message
+key: mykeyq
+key-format: string
+topic: my-topic
+{
+    "id": "1",
+    "message": "Hello, World!"
+}

@@ -12,3 +12,5 @@ We must use the previous steps to be able to implemented our expected Aggregator
 
 ### Installation
 In your terminal, inside aggreagator folder, you can type `make compose-up`
+
+So, we have our `Aggregator`

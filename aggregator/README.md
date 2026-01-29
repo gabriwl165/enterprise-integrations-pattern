@@ -10,7 +10,7 @@ Usually, in distribuited systems, we would like to process message as a whole th
 
 We must use the previous steps to be able to implemented our expected Aggregator. When aggregator receives the events, it must check if we need to group this data (Correlation), if it's the first one, we must sabe inside a set with it's id, we already exists we add the new message inside it using an algorithm (Aggregation Algorithm). After add the current message inside the set, we should check if it's already completed (Completeness Condition).
 
-![Aggregator Pattern Illustration](https://martinfowler.com/eaaDev/Aggregator.png)
+![Aggregator Pattern Illustration](asset/image.jpeg)
 
 
 ### Installation
